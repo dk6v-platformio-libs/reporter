@@ -1,0 +1,52 @@
+{
+    "name": "reporter",
+    "version": "1.0.0",
+    "description": "Metrics reporting library",
+    "keywords": "metrics, monitoring, reporting, telemetry",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dk6v-platformio-libs/reporter.git"
+    },
+    "authors": [
+        {
+            "name": "Dmitry Korobkov",
+            "email": "dmitry.korobkov.nn@gmail.com",
+            "url": "https://github.com/dk6v",
+            "maintainer": true
+        }
+    ],
+    "license": "GPL-3.0",
+    "frameworks": "arduino",
+    "platforms": [
+        "arduino",
+        "espressif8266"
+    ],
+    "headers": [
+        "Reporter.h",
+        "InfluxReporter.h"
+    ],
+    "export": {
+        "include": [
+            "src/*",
+            "LICENSE",
+            "README.md"
+        ],
+        "exclude": [
+            "test/*",
+            ".gitignore"
+        ]
+    },
+    "build": {
+        "libArchive": false,
+        "flags": [
+            "-Isrc"
+        ],
+        "unflags": [],
+        "srcFilter": [
+            "+<*.cpp>"
+        ]
+    },
+    "examples": [
+        "examples/*/*.ino"
+    ]
+}
