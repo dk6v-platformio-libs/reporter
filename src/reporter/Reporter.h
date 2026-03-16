@@ -17,6 +17,8 @@
 #include <Arduino.h>
 #include <Client.h>
 
+#include <console.h>
+
 namespace reporter {
 
 class Reporter {
@@ -76,7 +78,7 @@ public:
         {
             char buffer[32];
             snprintf(buffer, sizeof(buffer), "%g", value);
-            mFields.emplace_back(tag, std::to_string(value));
+            mFields.emplace_back(tag, buffer);
         }
     }
 
