@@ -77,7 +77,18 @@ public:
         if (condition)
         {
             char buffer[32];
-            snprintf(buffer, sizeof(buffer), "%g", value);
+            int length = snprintf(buffer, sizeof(buffer), "%.6f", value);
+
+            while (length > 1 && buffer[length - 1] == '0')
+            {
+                if (buffer[length - 2] == '.')
+                {
+                    break;
+                }
+                --length;
+            }
+            buffer[length] = '\0';
+
             mFields.emplace_back(tag, buffer);
         }
     }
